@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Companion.Emulator"
         mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance local:MainWindowViewModel}"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Image Width="296" Height="128" Source="{
+            Binding FrameBuffer,
+            Mode=OneWay }"/>
 
     </Grid>
 </Window>
