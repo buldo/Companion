@@ -23,6 +23,7 @@ namespace Companion.Ui
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainWindowViewModel();
         }
     }
 }
