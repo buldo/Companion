@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Companion.Emulator", "Compa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Companion.Ui", "Companion.Ui\Companion.Ui.csproj", "{1D0D3DDD-5264-452F-9BDA-D774849E76A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Companion.OutlookConnector", "Companion.OutlookConnector\Companion.OutlookConnector.csproj", "{B6C87DEA-C524-440D-8DB7-E8847DC20260}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1D0D3DDD-5264-452F-9BDA-D774849E76A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D0D3DDD-5264-452F-9BDA-D774849E76A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D0D3DDD-5264-452F-9BDA-D774849E76A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6C87DEA-C524-440D-8DB7-E8847DC20260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6C87DEA-C524-440D-8DB7-E8847DC20260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6C87DEA-C524-440D-8DB7-E8847DC20260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6C87DEA-C524-440D-8DB7-E8847DC20260}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

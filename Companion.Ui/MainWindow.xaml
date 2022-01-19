@@ -20,5 +20,12 @@
             <TextBox Grid.Column="0" Text="{Binding ConnectionPath, UpdateSourceTrigger=PropertyChanged}"/>
             <Button Grid.Column="1" Command="{Binding StartCommand}">Start</Button>
         </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1" Text="{Binding Unread}"/>
+        </Grid>
     </Grid>
 </Window>
