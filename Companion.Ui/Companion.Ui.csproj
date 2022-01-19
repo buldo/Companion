@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Companion.OutlookConnector\Companion.OutlookConnector.csproj" />
+    <ProjectReference Include="..\Companion.Sender.Composite\Companion.Sender.Composite.csproj" />
   </ItemGroup>
 
 </Project>

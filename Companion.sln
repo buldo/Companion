@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Companion.Ui", "Companion.U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Companion.OutlookConnector", "Companion.OutlookConnector\Companion.OutlookConnector.csproj", "{B6C87DEA-C524-440D-8DB7-E8847DC20260}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Companion.Sender.Abstractions", "Companion.Sender.Abstractions\Companion.Sender.Abstractions.csproj", "{DBC59395-592D-49D8-843A-6D633E386E13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Companion.Sender.Pipe", "Companion.Sender.Pipe\Companion.Sender.Pipe.csproj", "{F4B6601E-A5FE-45A4-BBB2-BFB149E9DF9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Companion.Sender.Composite", "Companion.Sender.Composite\Companion.Sender.Composite.csproj", "{E05A12F4-A0CE-4A3D-BA11-EBCCF6AC64FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,18 @@ Global
 		{B6C87DEA-C524-440D-8DB7-E8847DC20260}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6C87DEA-C524-440D-8DB7-E8847DC20260}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6C87DEA-C524-440D-8DB7-E8847DC20260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBC59395-592D-49D8-843A-6D633E386E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBC59395-592D-49D8-843A-6D633E386E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBC59395-592D-49D8-843A-6D633E386E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBC59395-592D-49D8-843A-6D633E386E13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4B6601E-A5FE-45A4-BBB2-BFB149E9DF9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4B6601E-A5FE-45A4-BBB2-BFB149E9DF9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4B6601E-A5FE-45A4-BBB2-BFB149E9DF9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4B6601E-A5FE-45A4-BBB2-BFB149E9DF9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E05A12F4-A0CE-4A3D-BA11-EBCCF6AC64FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E05A12F4-A0CE-4A3D-BA11-EBCCF6AC64FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E05A12F4-A0CE-4A3D-BA11-EBCCF6AC64FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E05A12F4-A0CE-4A3D-BA11-EBCCF6AC64FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

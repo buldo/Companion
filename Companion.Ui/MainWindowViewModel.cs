@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Companion.OutlookConnector;
+﻿using Companion.OutlookConnector;
+using Companion.Sender.Composite;
 using Prism.Commands;
 using Prism.Mvvm;
 
@@ -11,9 +7,10 @@ namespace Companion.Ui
 {
     internal class MainWindowViewModel : BindableBase
     {
+        private readonly CompositeSender _sender = new();
         private readonly OutlookMonitor _monitor;
         private string _connectionPath = string.Empty;
-        private int _unread = 0;
+        private int _unread;
 
         public MainWindowViewModel()
         {
@@ -50,12 +47,14 @@ namespace Companion.Ui
 
         private void ExecuteConnect()
         {
+            _sender.OpenConnection(ConnectionPath);
             _monitor.StartListen();
         }
 
         private void MonitorOnUnread(object? sender, UnreadEventArgs e)
         {
             Unread = e.Count;
+            var bitmap = new WpfBitmap(296, 128);
         }
     }
 }
