@@ -26,6 +26,12 @@ namespace Companion.Emulator
             var viewModel = new MainWindowViewModel();
             DataContext = viewModel;
             viewModel.SetFrameBuffer(init.Select( el => (byte)el).ToArray());
+            this.Loaded += OnLoaded;
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            ((MainWindowViewModel)DataContext).Start();
         }
 
         int[] init = { /* 0X00,0X01,0X80,0X00,0X28,0X01, */

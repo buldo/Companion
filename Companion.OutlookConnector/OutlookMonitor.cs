@@ -15,7 +15,7 @@ namespace Companion.OutlookConnector
         public OutlookMonitor()
         {
             _outlookProvider = new OutlookProvider();
-            _requestTimer = new Timer(10000){AutoReset = true};
+            _requestTimer = new Timer(1000){AutoReset = true};
             _requestTimer.Elapsed+= RequestTimerOnElapsed;
         }
 

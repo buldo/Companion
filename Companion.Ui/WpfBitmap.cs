@@ -1,49 +1,65 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections;
+using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Companion.Sender.Abstractions;
+using PixelFormat = System.Drawing.Imaging.PixelFormat;
+using Size = System.Windows.Size;
 
-namespace Companion.Ui
+namespace Companion.Ui;
+
+internal class WpfBitmap : IBitmap
 {
-    internal class WpfBitmap : IBitmap
+    private readonly int _width;
+    private readonly int _height;
+    private byte[] _rendered;
+
+    public WpfBitmap(int width, int height)
     {
-        private readonly int _width;
-        private readonly int _height;
+        _width = width;
+        _height = height;
+        Bitmap = new RenderTargetBitmap(_width, _height, 96, 96, PixelFormats.Default);
+    }
 
-        public WpfBitmap(int width, int height)
-        {
-            _width = width;
-            _height = height;
-        }
+    public RenderTargetBitmap Bitmap { get; }
 
-        public WriteableBitmap Bitmap =
-            new(296, 128, 96, 96, PixelFormats.BlackWhite, BitmapPalettes.BlackAndWhite);
+    public void ResizeTo(uint width, uint height)
+    {
 
-        public void ResizeTo(uint width, uint height)
-        {
+    }
 
-        }
+    public byte[] GetBits()
+    {
+        return _rendered;
+    }
 
-        public byte[] GetBits()
-        {
-            var image = new byte[_width * _height / 8];
-            Bitmap.CopyPixels(new Int32Rect(0, 0, 296, 128), image, _width / 8, 0);
+    private byte[] GetBitsInner()
+    {
+        var bwBitmap = new FormatConvertedBitmap(
+            Bitmap,
+            PixelFormats.BlackWhite,
+            BitmapPalettes.BlackAndWhite,
+            0);
+        var rotBitmap = new TransformedBitmap(bwBitmap, new RotateTransform(90));
 
-            var ret = new byte[image.Length];
-            for (int i = 0; i < _width; i++)
-            {
-                for (int j = 0; j < _height; j++)
-                {
-                    ret[i * _height + j] = image[j * _width + i];
-                }
-            }
+        var image = new byte[_width * _height / 8];
+        rotBitmap.CopyPixels(image, _height/8, 0);
 
-            return ret;
-        }
+        return image;
+    }
+
+    public void Render(UIElement element)
+    {
+        var control = new Viewbox();
+        control.Child = element;
+        control.Measure(new Size(296, 128));
+        control.Arrange(new Rect(new Size(296, 128)));
+        control.UpdateLayout();
+        Bitmap.Render(control);
+        _rendered = GetBitsInner();
     }
 }

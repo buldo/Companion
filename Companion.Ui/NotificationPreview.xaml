@@ -7,7 +7,8 @@
              mc:Ignorable="d"
              d:DesignHeight="128" d:DesignWidth="296"
              Height="128" Width="296"
-             d:DataContext="{d:DesignInstance local:MainWindowViewModel}">
+             d:DataContext="{d:DesignInstance local:MainWindowViewModel}"
+             Background="White">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>

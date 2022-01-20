@@ -1,4 +1,7 @@
-﻿using Companion.OutlookConnector;
+﻿using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using Companion.OutlookConnector;
 using Companion.Sender.Composite;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -54,7 +57,15 @@ namespace Companion.Ui
         private void MonitorOnUnread(object? sender, UnreadEventArgs e)
         {
             Unread = e.Count;
-            var bitmap = new WpfBitmap(296, 128);
+
+            WpfBitmap bitmap = null;
+            Application.Current.Dispatcher.Invoke(() => {
+                bitmap = new WpfBitmap(296, 128);
+                var element = new NotificationPreview() { DataContext = this };
+                bitmap.Render(element);
+            });
+
+            _sender.SendBitmap(bitmap);
         }
     }
 }

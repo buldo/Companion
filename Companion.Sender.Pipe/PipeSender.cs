@@ -8,10 +8,18 @@ namespace Companion.Sender.Pipe;
 public class PipeSender : ISender
 {
     private readonly NamedPipeServerStream _pipeServerStream =
-        new("Companion.Screen", PipeDirection.Out, 1, PipeTransmissionMode.Message);
+        new("Companion.Screen", PipeDirection.InOut, 1, PipeTransmissionMode.Message, PipeOptions.WriteThrough,0,0);
+
+    public PipeSender()
+    {
+        _pipeServerStream.WaitForConnection();
+    }
 
     public void SendBitmap(IBitmap bitmap)
     {
-        _pipeServerStream.Write(bitmap.GetBits());
+        if (_pipeServerStream.IsConnected)
+        {
+            _pipeServerStream.Write(bitmap.GetBits());
+        }
     }
 }
