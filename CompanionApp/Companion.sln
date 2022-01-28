@@ -5,15 +5,17 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Companion.Emulator", "Companion.Emulator\Companion.Emulator.csproj", "{05D513BC-3742-4AB1-A1A9-B8419A931DC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Companion.Ui", "Companion.Ui\Companion.Ui.csproj", "{1D0D3DDD-5264-452F-9BDA-D774849E76A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Companion.Ui", "Companion.Ui\Companion.Ui.csproj", "{1D0D3DDD-5264-452F-9BDA-D774849E76A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Companion.OutlookConnector", "Companion.OutlookConnector\Companion.OutlookConnector.csproj", "{B6C87DEA-C524-440D-8DB7-E8847DC20260}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Companion.OutlookConnector", "Companion.OutlookConnector\Companion.OutlookConnector.csproj", "{B6C87DEA-C524-440D-8DB7-E8847DC20260}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Companion.Sender.Abstractions", "Companion.Sender.Abstractions\Companion.Sender.Abstractions.csproj", "{DBC59395-592D-49D8-843A-6D633E386E13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Companion.Sender.Abstractions", "Companion.Sender.Abstractions\Companion.Sender.Abstractions.csproj", "{DBC59395-592D-49D8-843A-6D633E386E13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Companion.Sender.Pipe", "Companion.Sender.Pipe\Companion.Sender.Pipe.csproj", "{F4B6601E-A5FE-45A4-BBB2-BFB149E9DF9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Companion.Sender.Pipe", "Companion.Sender.Pipe\Companion.Sender.Pipe.csproj", "{F4B6601E-A5FE-45A4-BBB2-BFB149E9DF9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Companion.Sender.Composite", "Companion.Sender.Composite\Companion.Sender.Composite.csproj", "{E05A12F4-A0CE-4A3D-BA11-EBCCF6AC64FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Companion.Sender.Composite", "Companion.Sender.Composite\Companion.Sender.Composite.csproj", "{E05A12F4-A0CE-4A3D-BA11-EBCCF6AC64FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Companion.Sender.Usb", "Companion.Sender.Usb\Companion.Sender.Usb.csproj", "{C58F7888-3359-4B3B-90D3-44BE44B136D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{E05A12F4-A0CE-4A3D-BA11-EBCCF6AC64FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E05A12F4-A0CE-4A3D-BA11-EBCCF6AC64FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E05A12F4-A0CE-4A3D-BA11-EBCCF6AC64FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C58F7888-3359-4B3B-90D3-44BE44B136D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C58F7888-3359-4B3B-90D3-44BE44B136D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C58F7888-3359-4B3B-90D3-44BE44B136D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C58F7888-3359-4B3B-90D3-44BE44B136D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

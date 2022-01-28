@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Companion.OutlookConnector;
@@ -19,7 +20,7 @@ namespace Companion.Ui
         {
             StartCommand = new DelegateCommand(ExecuteConnect, CanExecuteConnect);
             _monitor = new OutlookMonitor();
-            _monitor.Unread += MonitorOnUnread;
+            _monitor.Unread += MonitorOnUnreadAsync;
         }
 
         public string ConnectionPath
@@ -54,18 +55,24 @@ namespace Companion.Ui
             _monitor.StartListen();
         }
 
-        private void MonitorOnUnread(object? sender, UnreadEventArgs e)
+        private async void MonitorOnUnreadAsync(object? sender, UnreadEventArgs e)
         {
-            Unread = e.Count;
+            try
+            {
+                Unread = e.Count;
 
-            WpfBitmap bitmap = null;
-            Application.Current.Dispatcher.Invoke(() => {
-                bitmap = new WpfBitmap(296, 128);
-                var element = new NotificationPreview() { DataContext = this };
-                bitmap.Render(element);
-            });
+                WpfBitmap bitmap = null;
+                Application.Current.Dispatcher.Invoke(() => {
+                    bitmap = new WpfBitmap(296, 128);
+                    var element = new NotificationPreview() { DataContext = this };
+                    bitmap.Render(element);
+                });
 
-            _sender.SendBitmap(bitmap);
+                await _sender.SendBitmapAsync(bitmap);
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }

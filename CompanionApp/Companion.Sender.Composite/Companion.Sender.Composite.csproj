@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Companion.Sender.Abstractions\Companion.Sender.Abstractions.csproj" />
     <ProjectReference Include="..\Companion.Sender.Pipe\Companion.Sender.Pipe.csproj" />
+    <ProjectReference Include="..\Companion.Sender.Usb\Companion.Sender.Usb.csproj" />
   </ItemGroup>
 
 </Project>

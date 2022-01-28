@@ -5,5 +5,5 @@ namespace Companion.Sender.Abstractions;
 [PublicAPI]
 public interface ISender
 {
-    void SendBitmap(IBitmap bitmap);
+    Task SendBitmapAsync(IBitmap bitmap);
 }

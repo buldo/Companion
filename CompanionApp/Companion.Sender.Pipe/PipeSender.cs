@@ -15,11 +15,11 @@ public class PipeSender : ISender
         _pipeServerStream.WaitForConnection();
     }
 
-    public void SendBitmap(IBitmap bitmap)
+    public async Task SendBitmapAsync(IBitmap bitmap)
     {
         if (_pipeServerStream.IsConnected)
         {
-            _pipeServerStream.Write(bitmap.GetBits());
+            await _pipeServerStream.WriteAsync(bitmap.GetBits());
         }
     }
 }

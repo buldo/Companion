@@ -1,5 +1,7 @@
 ﻿using Companion.Sender.Abstractions;
 using Companion.Sender.Pipe;
+using Companion.Sender.Usb;
+
 using JetBrains.Annotations;
 
 namespace Companion.Sender.Composite;
@@ -15,10 +17,17 @@ public class CompositeSender : ISender
         {
             _realSender = new PipeSender();
         }
+        if (string.Equals(connectionString, "usb"))
+        {
+            _realSender = new UsbSender();
+        }
     }
 
-    public void SendBitmap(IBitmap bitmap)
+    public async Task SendBitmapAsync(IBitmap bitmap)
     {
-        _realSender?.SendBitmap(bitmap);
+        if(_realSender != null)
+        {
+            await _realSender.SendBitmapAsync(bitmap).ConfigureAwait(false);
+        }
     }
 }
