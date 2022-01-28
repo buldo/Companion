@@ -46,7 +46,7 @@ namespace Companion.Ui
         private bool CanExecuteConnect()
         {
             return !string.IsNullOrWhiteSpace(ConnectionPath) &&
-                   (ConnectionPath == "pipe" || ConnectionPath.StartsWith("COM"));
+                   (ConnectionPath == "pipe" || ConnectionPath.StartsWith("usb"));
         }
 
         private void ExecuteConnect()
