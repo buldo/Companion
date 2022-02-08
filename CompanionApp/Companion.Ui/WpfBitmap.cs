@@ -44,7 +44,7 @@ internal class WpfBitmap : IBitmap
             PixelFormats.BlackWhite,
             BitmapPalettes.BlackAndWhite,
             0);
-        var rotBitmap = new TransformedBitmap(bwBitmap, new RotateTransform(90));
+        var rotBitmap = new TransformedBitmap(bwBitmap, new RotateTransform(270));
 
         var image = new byte[_width * _height / 8];
         rotBitmap.CopyPixels(image, _height/8, 0);
