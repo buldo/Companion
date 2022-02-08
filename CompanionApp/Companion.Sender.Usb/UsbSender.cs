@@ -7,6 +7,13 @@ using Hid.Net.Windows;
 
 namespace Companion.Sender.Usb
 {
+    internal enum Commands : byte
+    {
+        PutData = 0x01,
+        Display = 0x02,
+        RebootToBootloader = 0xFF
+    }
+
     public class UsbSender : ISender
     {
         private readonly IDeviceFactory _hidFactory;
@@ -51,7 +58,7 @@ namespace Companion.Sender.Usb
             var buffer = new byte[65];
 
             var currentOffset = (short)0;
-            var imageBuffer = buffer.AsMemory(3, 48).Slice(0);
+            var imageBuffer = buffer.AsMemory(4, 48).Slice(0);
 
             while (currentOffset < image.Length)
             {
@@ -68,16 +75,15 @@ namespace Companion.Sender.Usb
                 }
 
                 var indexArr = BitConverter.GetBytes(reportOffset);
-                buffer[0] = indexArr[0];
-                buffer[1] = indexArr[1];
-                buffer[2] = i;
+                buffer[0] = (byte)Commands.PutData;
+                buffer[1] = indexArr[0];
+                buffer[2] = indexArr[1];
+                buffer[3] = i;
 
                 await device.WriteReportAsync(buffer, 0x00);
             }
 
-            var arr = BitConverter.GetBytes(5000);
-            buffer[0] = arr[0];
-            buffer[1] = arr[1];
+            buffer[0] = (byte)Commands.Display;
 
             await device.WriteReportAsync(buffer, 0x00);
         }
